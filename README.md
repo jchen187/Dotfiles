@@ -21,5 +21,5 @@ cd Dotfiles
 make all
 ```
 
-### Special Thanks to
-Based on https://github.com/eemp/dotfiles
+### Acknowledgement
+Based on an existing git repo - https://github.com/eemp/dotfiles
