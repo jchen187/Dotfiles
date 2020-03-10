@@ -3,7 +3,7 @@ echo "2. ENTERING BASHRC"
 
 set_prompt() {
 ## ------------- Terminal Prompt -------------
-# You can have 0; or 1; - It seems like 1 makes the color a bit brighter
+# You can have the color begin in 0; or 1; - It seems like 1 makes the text a bit bolder and hence a bit brighter
 Red='\[\e[01;31m\]'
 Green='\[\e[0;32m\]'
 Yellow='\[\e[0;33m\]'
@@ -21,7 +21,14 @@ get_git_branch() {
 
 # Edit terminal prompt
 # PS1="$Cyan\d $Green\t $Yellow\u@\h: $Purple\w"
-PS1="$Cyan\t $Green\u:$Purple$(get_git_branch) $Yellow\w"
+PS1="$Cyan\t $Green\u:$Purple$(get_git_branch) "
+# If outside of your home directory, print the current directory in orange, yellow otherwise.
+if [[ $PWD/ != /Users/$USER/* ]]; then
+PS1+="$Orange\\w "
+else
+PS1+="$Yellow\\w "
+fi
+# Reset the text color to the default.
 PS1+="\\\$$Reset "
 }
 
