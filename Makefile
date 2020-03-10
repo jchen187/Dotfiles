@@ -22,9 +22,11 @@ bash:
 		echo "Making backup copy of existing bashrc"; \ #NEED TO HAVE THE ; and the
 		mv ~/.bashrc ~/.bashrc_bak; \
 	fi
-#	@echo "Creating symtlink"
-#	ln -s ${PWD}/bashrc ~/.bashrc
-#	source ~/.bashrc
+	@echo "Creating symtlink"
+	ln -s ${PWD}/bashrc ~/.bashrc
+	ln -s ${PWD}/bash_profile ~/.bash_profile
+	source ~/.bashrc
+	source ~/.bash_profile
 
 git:
 	@echo "Upgrading your .gitconfig..."
