@@ -12,19 +12,20 @@ White='\[\e[01;37m\]'
 Orange='\[\e[01;31m\]'
 Reset='\[\e[00m\]'
 
+# Git - Get the current branch
+get_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
 # Edit terminal prompt
 # PS1="$Cyan\d $Green\t $Yellow\u@\h: $Purple\w"
-PS1="$Cyan\t $Green\u: $Yellow\w"
+PS1="$Cyan\t $Green\u:$Purple(get_git_branch) $Yellow\w"
 PS1+="\\\$$Reset "
 
 ## ------------- NVM -------------
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-## ------------- Miscellaneous -------------
-alias createComponent="yo project"
-alias letsCode="cd ~/Desktop"
 
 ## ------------- Node Modules -------------
 alias listAllGlobalNodeModules="npm list -g --depth=0"
@@ -58,3 +59,24 @@ alias listProcesses='ps aux'
 # alias whatsUsingPortOLD="findPort(){ lsof -i:'$1'; unset -f findPort; }; findPort" #DOESNT WORK - NEED TO BE DOUBLE QUOTE
 alias whatsUsingPort='findPort(){ lsof -i:"$1"; unset -f findPort; }; findPort'
 # https://unix.stackexchange.com/questions/3773/how-to-pass-parameters-to-an-alias
+
+## ------------- Miscellaneous -------------
+alias createComponent="yo project"
+alias letsCode="cd ~/Desktop"
+alias makeTempFileAndFolder='makeTempFileAndFolder'
+
+makeTempFileAndFolder() {
+    folderName="deleteFolder";
+    fileName="deleteFile";
+    if [ $1 ]
+    then
+        folderName=$1;
+    fi
+    if [ $2 ]
+    then
+        fileName=$2;
+    fi
+    mkdir $folderName;
+    touch $folderName/$fileName.docx;
+    echo $folderName $fileName;
+}
