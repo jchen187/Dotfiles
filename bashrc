@@ -1,6 +1,7 @@
 # macOS - when you open up any terminal, the bash profile is accessed before the bashrc
 echo "2. ENTERING BASHRC"
 
+set_prompt() {
 ## ------------- Terminal Prompt -------------
 Red='\[\e[01;31m\]'
 Green='\[\e[0;32m\]'
@@ -21,6 +22,10 @@ get_git_branch() {
 # PS1="$Cyan\d $Green\t $Yellow\u@\h: $Purple\w"
 PS1="$Cyan\t $Green\u:$Purple$(get_git_branch) $Yellow\w"
 PS1+="\\\$$Reset "
+}
+
+# You need this in order for get_git_branch to work properly
+PROMPT_COMMAND='set_prompt'
 
 ## ------------- NVM -------------
 export NVM_DIR="$HOME/.nvm"
