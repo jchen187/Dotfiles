@@ -72,6 +72,12 @@ alias listProcesses='ps aux'
 # alias whatsUsingPortOLD="findPort(){ lsof -i:'$1'; unset -f findPort; }; findPort" #DOESNT WORK - NEED TO BE DOUBLE QUOTE
 alias whatsUsingPort='findPort(){ lsof -i:"$1"; unset -f findPort; }; findPort'
 # https://unix.stackexchange.com/questions/3773/how-to-pass-parameters-to-an-alias
+alias portsInUse='portsInUse'
+
+portsInUse() {
+    echo "Find ports that are responsible for network connections"
+    lsof -i | grep -oE 'TCP \*:[0-9]{4}' | grep -oE '[0-9]+' | uniq
+}
 
 ## ------------- Miscellaneous -------------
 alias createComponent="yo project"
