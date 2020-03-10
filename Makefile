@@ -25,8 +25,7 @@ bash:
 # We force symlink with the -f option, so we dont have to remove the files
 # We dont need to `source ~/.bashrc` because we do so in the bash_profile
 # Shell Scripting Syntax
-	#TODO - check if it is a symlink
-	@if [ -f ~/.bashrc ]; \
+	@if [ -f ~/.bashrc ] && [ ! -L ~/.bashrc ]; \
 	then \
 		echo "Making backup copy of existing bashrc located in ~/.bashrc_bak"; \
 		mv ~/.bashrc ~/.bashrc_bak; \
