@@ -1,5 +1,5 @@
 # macOS - when you open up any terminal, the bash profile is accessed before the bashrc
-echo "1. ENTERING BASHRC"
+echo "2. ENTERING BASHRC"
 
 ## ------------- Terminal Prompt -------------
 Red='\[\e[01;31m\]'
@@ -19,7 +19,7 @@ get_git_branch() {
 
 # Edit terminal prompt
 # PS1="$Cyan\d $Green\t $Yellow\u@\h: $Purple\w"
-PS1="$Cyan\t $Green\u:$Purple(get_git_branch) $Yellow\w"
+PS1="$Cyan\t $Green\u:$Purple$(get_git_branch) $Yellow\w"
 PS1+="\\\$$Reset "
 
 ## ------------- NVM -------------

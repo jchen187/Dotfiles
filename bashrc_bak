@@ -1,0 +1,52 @@
+set_prompt () {
+# Colors
+Red='\[\e[0;31m\]'
+Green='\[\e[0;32m\]'
+Yellow='\[\e[0;33m\]'
+Blue='\[\e[1;34m\]'
+Purple='\[\e[1;35m\]'
+Cyan='\[\e[0;36m\]'
+White='\[\e[0;37m\]'
+Reset='\[\e[00m\]'
+
+# Git - Get the current branch
+get_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+PS1="$Purple\@ $Green\\u@\\h: $Blue\\w"
+# PS1="$Cyan\d $Green\t $Yellow\u@\h: $Purple\w"
+PS1="$Cyan\t $Green\u@\h:$Yellow$(get_git_branch) $Purple\w"
+PS1+="\\\$$Reset "
+}
+
+PROMPT_COMMAND='set_prompt'
+
+PATH="/Users/johnny/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/johnny/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/johnny/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/johnny/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/johnny/perl5"; export PERL_MM_OPT;
+
+alias letsCode="cd ~/Desktop/Learning+Projects/databaseWithMongoDB"
+alias ls='ls -G'
+
+alias updateBash='source ~/.bashrc'
+alias editBash='vim ~/.bashrc'
+alias makeTempFileAndFolder='makeTempFileAndFolder'
+
+makeTempFileAndFolder() {
+    folderName="deleteFolder";
+    fileName="deleteFile";
+    if [ $1 ]
+    then
+        folderName=$1;
+    fi
+    if [ $2 ]
+    then
+        fileName=$2;
+    fi
+    mkdir $folderName;
+    touch $folderName/$fileName.docx;
+    echo $folderName $fileName;
+}
