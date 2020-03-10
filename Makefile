@@ -5,6 +5,7 @@ introText:
 
 endText:
 	@echo "\n>^.^<\n@JohnnyPlease"
+	@echo "YOU MIGHT HAVE TO RUN `source ~/.bash_profile` or `source ~/.bashrc`"
 
 sendHelp:
 	@echo "Sending in some tech support"
@@ -37,6 +38,8 @@ bash:
 
 git:
 	@echo "Upgrading your .gitconfig..." #Can you put comment here? Yes.
+## TODO - ask for name and email to populate the config file
+## the name can be the $user by default
 
 vim:
 	@echo "Updating your .vimrc..."
