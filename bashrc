@@ -3,11 +3,12 @@ echo "2. ENTERING BASHRC"
 
 set_prompt() {
 ## ------------- Terminal Prompt -------------
+# You can have 0; or 1; - It seems like 1 makes the color a bit brighter
 Red='\[\e[01;31m\]'
 Green='\[\e[0;32m\]'
 Yellow='\[\e[0;33m\]'
 Blue='\[\e[0;34m\]'
-Purple='\[\e[0;35m\]'
+Purple='\[\e[1;35m\]'
 Cyan='\[\e[0;36m\]'
 White='\[\e[01;37m\]'
 Orange='\[\e[01;31m\]'
