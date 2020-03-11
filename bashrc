@@ -80,8 +80,9 @@ portsInUse() {
 }
 
 ## ------------- Miscellaneous -------------
+LetsCodeDir="~/Desktop"
 alias createComponent="yo project"
-alias letsCode="cd ~/Desktop"
+alias letsCode="echo -e '1. Type in editBash.\n2. Update the letsCode alias so you cd into the directory of your choice.'; cd ${LetsCodeDir}"
 alias makeTempFileAndFolder='makeTempFileAndFolder'
 
 makeTempFileAndFolder() {
