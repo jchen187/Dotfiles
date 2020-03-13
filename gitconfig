@@ -23,8 +23,15 @@
     unchanged-assumptions = !git ls-files -v | grep "^[[:lower:]]"
 [color]
     ui = true
+    ;diff = auto
 [color "diff"]
     whitespace = yellow
+[color "status"]
+    added = green
+    changed = red bold
+    untracked = magenta bold
+[color "branch"]
+    remote = yellow
 [core]
     pager = less -r
     editor = vim
