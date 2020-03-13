@@ -1,6 +1,6 @@
 [user]
-    name = #TODO
-    email = #TODO
+    ;name = UPDATE
+    ;email = UPDATE
 [alias]
     addi = add -i
     addnw = !sh -c 'git diff -U0 -w --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
