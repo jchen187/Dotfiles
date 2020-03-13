@@ -28,10 +28,10 @@ bash:
 # Shell Scripting Syntax
 	@if [ -f ~/.bashrc ] && [ ! -L ~/.bashrc ]; \
 	then \
-		echo "Making backup copy of existing bashrc located in ~/.bashrc_bak"; \
+		echo "1. Making backup copy of existing bashrc located in ~/.bashrc_bak"; \
 		mv ~/.bashrc ~/.bashrc_bak; \
 	fi
-	@echo "Creating symlink"
+	@echo "2. Creating symlink"
 	ln -sf ${PWD}/bashrc ~/.bashrc
 	ln -sf ${PWD}/bash_profile ~/.bash_profile
 	source ~/.bash_profile
@@ -40,6 +40,13 @@ git:
 	@echo "Upgrading your .gitconfig..." #Can you put comment here? Yes.
 ## TODO - ask for name and email to populate the config file
 ## the name can be the $user by default
+	@if [ -f ~/.gitconfig ] && [ ! -L ~/.gitconfig ]; \
+	then \
+		echo "1. Making backup copy of existing gitconfig located in ~/.gitconfig_bak"; \
+		mv ~/.gitconfig ~/.gitconfig_bak; \
+	fi
+	@echo "2. Creating symlink"
+	ln -sf ${PWD}/gitconfig ~/.gitconfig
 
 vim:
 	@echo "Updating your .vimrc..."
