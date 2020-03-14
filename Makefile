@@ -50,3 +50,10 @@ git:
 
 vim:
 	@echo "Updating your .vimrc..."
+	@if [ -f ~/.vimrc ] && [ ! -L ~/.vimrc ]; \
+	then \
+		echo "1. Making backup copy of existing vimrc located in ~/.vimrc_bak"; \
+		mv ~/.vimrc ~/.vimrc_bak; \
+	fi
+	@echo "2. Creating symlink"
+	ln -sf ${PWD}/vimrc ~/.vimrc
