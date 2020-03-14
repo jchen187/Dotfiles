@@ -100,7 +100,7 @@ set shiftwidth=2
 set tabstop=2
 
 " Auto indent
-set ai 
+set ai
 " Smart indent
 set si
 
@@ -111,3 +111,31 @@ vnoremap > >gv
 " Show trailing and preceding spaces
 set list
 set listchars=tab:>-,trail:~,extends:>,precedes:<
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" > STATUS LINE
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Always show the status line
+set laststatus=2
+
+" Format the status line
+set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" > MOUSE
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Send more characters for redraws
+set ttyfast
+
+" Enable mouse use in all modes
+if has('mouse')
+    set mouse=a
+endif
+
+" Set this to the name of your terminal that supports mouse codes.
+" Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
+if !has('nvim')
+  set ttymouse=xterm2
+endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
