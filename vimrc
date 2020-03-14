@@ -30,6 +30,7 @@ set ffs=unix,dos,mac
 set showmatch
 
 " Line numbers
+" number OR nu
 set nu
 map <C-n> :set nu!<cr>
 
@@ -45,7 +46,17 @@ set t_Co=256
 set background=dark
 colorscheme PaperColor
 
+" highlight OR hi
 highlight LineNr ctermfg=grey
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" > VISUAL [TEMPORARY - COMMENT LATER]
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" colorscheme OR colo
+syntax on
+colo slate
+set cursorline
+highlight CursorLine ctermbg=235
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " > FOLDING
@@ -68,9 +79,14 @@ set smartcase
 
 " Highlight search results
 set hlsearch
+" hi Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
+" hi Search ctermfg=Yellow ctermbg=LightGray cterm=bold,underline
 
-" Makes search act like search in modern browsers
+" Makes search act like search in modern browsers - search as you type the phrase
 set incsearch
+
+" Set color of highlight in visual mode
+" hi Visual cterm=NONE
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " > FILES, BACKUPS AND UNDO
@@ -96,12 +112,18 @@ endif
 set smarttab
 
 " 1 tab == 4 spaces
+" set ts=4 sw=4 sts=4 et
+" tabstop OR ts
+" shiftwidth OR sw
 set shiftwidth=2
 set tabstop=2
 
-" Auto indent
+" Auto indent - indent the same as the current line
+" autoindent OR ai
 set ai
-" Smart indent
+
+" Smart indent - indent based on the syntax
+" smartindent OR si
 set si
 
 " Make < > shifts and keep selection afterward
@@ -139,3 +161,11 @@ if !has('nvim')
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" > ARROW KEYS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Arrow keys sometimes stop working
+" set notimeout         " don't timeout on mappings
+" set ttimeout          " do timeout on terminal key codes
+" set timeoutlen=109    " timeout after 100 msec
+" set nocompatible      " this would be needed if we did not have a user vimrc file
+
