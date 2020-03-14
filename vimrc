@@ -34,10 +34,45 @@ set ffs=unix,dos,mac
 " Show matching brackets when text indicator is over them
 set showmatch
 
-" line numbers
+" Line numbers
 set nu
 map <C-n> :set nu!<cr>
 
-" comma is more convenient for leader
+" Comma is more convenient for leader
 let mapleader=","
 
+"""""""""""""""""""""
+" > VISUAL
+"""""""""""""""""""""
+" Enable syntax highlighting
+"syntax enable
+set t_Co=256
+set background=dark
+colorscheme PaperColor
+
+highlight LineNr ctermfg=grey
+
+"""""""""""""""""""""""
+" > FOLDING
+""""""""""""""""""""""""
+" Folds will be based on indents
+set foldmethod=indent
+
+" Start file with all folds opened
+" https://medium.com/vim-drops/javascript-folding-on-vim-119c70d2e872
+set foldlevelstart=99
+
+""""""""""""""""""""""""
+" > SEARCHING
+""""""""""""""""""""""""
+" Ignore case when searching
+set ignorecase
+
+" When searching try to be smart about cases
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+" Makes search act like search in modern browsers
+set incsearch
