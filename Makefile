@@ -12,6 +12,21 @@ sendHelp:
 ### TODO: Update link with own page
 	@open https://www.google.com -a Google\ Chrome
 
+cleanUp:
+	@echo "Cleaning up..."
+	@echo "1. Removing the symlinks"
+	rm -f ~/.bashrc
+	rm -f ~/.gitconfig
+	rm -f ~/.vimrc
+	@echo "2. Restoring the backup files"
+	mv ~/.bashrc_bak ~/.bashrc
+	mv ~/.gitconfig_bak ~/.gitconfig
+	mv ~/.vimrc_bak ~/.vimrc
+	@echo "3. Removing the contents in this folder."
+	CURRENT_DIRECTORY=${PWD}
+	cd ..
+	rm -rf ${CURRENT_DIRECTORY}
+
 bash:
 	@echo "Updating your .bashrc..."
 # Native Makefile syntax
