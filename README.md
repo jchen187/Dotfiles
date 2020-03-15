@@ -13,7 +13,7 @@ Upgrade your coding experience with these dotfiles
 5. ack
 6. git_completion OR bash_completion
 6. Tmux
-7. zsh
+7. zsh - https://scriptingosx.com/2019/07/moving-to-zsh-part-5-completions/
 8. z
 9. tree
 10. fzf

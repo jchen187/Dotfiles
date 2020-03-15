@@ -108,6 +108,7 @@ set expandtab
 " So do not expand tabs into space.
 if has('autocmd')
     autocmd FileType make   set noexpandtab
+" TODO - if the file is not a make file set expandtab - you will run into an issue if you open a Makefile in any buffer, noexpandtab will be set, which becomes a problem if you are editing other files
 endif
 
 " Be smart when using tabs ;)

@@ -78,3 +78,8 @@ vim:
 	fi
 	@echo "2. Creating symlink"
 	ln -sf ${PWD}/vimrc ~/.vimrc
+
+vundle:
+	@echo "Setting up Vim plugins"
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	vim +PluginInstall +qall
