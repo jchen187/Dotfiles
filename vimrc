@@ -252,7 +252,6 @@ endif
 " set timeoutlen=109    " timeout after 100 msec
 " set nocompatible      " this would be needed if we did not have a user vimrc file
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " > BETTER SPLIT NAVIGATION (ONLY WORKS WHEN YOU HAVE SPLITS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -270,3 +269,53 @@ highlight DiffAdd    cterm=bold ctermfg=15 ctermbg=27 gui=none guifg=bg guibg=Re
 highlight DiffDelete cterm=bold ctermfg=15 ctermbg=27 gui=none guifg=bg guibg=Red
 highlight DiffChange cterm=bold ctermfg=15 ctermbg=27 gui=none guifg=bg guibg=Red
 highlight DiffText   cterm=bold ctermfg=15 ctermbg=88 gui=none guifg=bg guibg=Red
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" > AUTOCOMMANDS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" au OR autocmd
+au BufRead,BufNewFile *.ipy set filetype=python
+au BufRead,BufNewFile *.json set filetype=json
+au BufRead,BufNewFile *.rest set filetype=rest 
+
+" Remove trailing whitespace
+autocmd BufWritePre * %s/\s\+$//e
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" > CTRLP 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TODO - CHANGE THE USER COMMAND TO ACK - CHECK TO SEE ACK IS AVAILABLE FIRST
+" let g:ctrlp_user_command = 'ack'
+
+" Specify files to ignore
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+" Turn off ctrlp if necessary
+" let g:loaded_ctrlp = 1
+
+" INITIAL CONFIG - MIHIR
+"let g:ctrlp_user_command = 'find %s -name "*.js" -o -name "*.pm" -o -name "*.pl" -o -name "*.config" -type f'
+" TODO - NOT SURE WHY THE BELOW LINE STOPPED WORKING. DOES IT HAVE SOMETHING TO DO WITH CHANGES TO FIND AND GREP I MADE EARLIER
+"let g:ctrlp_user_command = 'find %s -type f | grep -v "`cat ~/.ctrlpignore`"'
+let g:ctrlp_root_markers = ['.ctrlp']
+
+" CACHE FOR FASTER RESULTS - KEVIN
+:map <C-l> :CtrlPBuffer<CR>
+let g:ctrlp_follow_symlinks = 1
+let g:ctrlp_cache_dir = '~/.cache/ctrlp'
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_max_files = 20000
+let g:ctrlp_working_path_mode = 'w'
+let g:ctrlp_custom_ignore = {
+      \ 'dir': '\v[\/](\.git|node_modules|mason)$',
+      \}
+
+" USING RIPGREP - NICK
+"let ripgrep = '/home/nick/myapps/bin/rg'
+"if executable(ripgrep)
+  "let rg_options = '--files --follow --color=never --glob "!node_modules"'
+  "let rg_sort_by_length = "awk '{print length, $0}' | sort -n | awk '{ print $2 }'"
+  "let rg_base_command = ripgrep . " %s " . rg_options
+  "let rg_command = rg_base_command . " | " . rg_sort_by_length
+  "let g:ctrlp_user_command = rg_command
+"endif
+
