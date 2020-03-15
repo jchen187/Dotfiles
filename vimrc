@@ -11,6 +11,86 @@ endfunction
 " call SourceIfExists("/etc/vimrc")
 
 
+"""""""""""""""""
+" VUNDLE
+"""""""""""""""""
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Plugin overrides
+let g:PaperColor_Dark_Override = { 'comment' : '#5f875f' }
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+" Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'bling/vim-bufferline'
+Plugin 'ctrlpvim/ctrlp.vim'
+" Plugin 'dart-lang/dart-vim-plugin'
+Plugin 'elzr/vim-json'
+Plugin 'ervandew/supertab'
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/syntastic'
+" Plugin 'SirVer/ultisnips'
+Plugin 'tpope/vim-flagship'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-sleuth'
+Plugin 'tpope/vim-surround'
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-scripts/grep.vim'
+
+"let g:javascript_conceal_function             = "ƒ"
+"let g:javascript_conceal_null                 = "ø"
+"let g:javascript_conceal_undefined            = "¿"
+"let g:javascript_conceal_NaN                  = "ℕ"
+"let g:javascript_conceal_arrow_function       = "⇒"
+"set conceallevel=1
+Plugin 'pangloss/vim-javascript'
+
+Plugin 'mxw/vim-jsx'
+"Plugin 'Valloric/MatchTagAlways'
+
+" TODO - Should this line be commented out? It prevents folding
+"let g:vim_markdown_folding_disabled = 1
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
+let g:vrc_trigger = '<C-n>'
+let g:vrc_show_command = 1
+Plugin 'diepm/vim-rest-console'
+
+"let's keep vim simple
+"Plugin 'Raimondi/delimitMate'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " > GENERAL
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -53,10 +133,10 @@ highlight LineNr ctermfg=grey
 " > VISUAL [TEMPORARY - COMMENT LATER]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " colorscheme OR colo
-syntax on
-colo slate
-set cursorline
-highlight CursorLine ctermbg=235
+" syntax on
+" colo slate
+" set cursorline
+" highlight CursorLine ctermbg=235
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " > FOLDING
