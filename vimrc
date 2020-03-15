@@ -117,6 +117,7 @@ set smarttab
 " set ts=4 sw=4 sts=4 et
 " tabstop OR ts
 " shiftwidth OR sw
+" expandtab OR et
 set shiftwidth=2
 set tabstop=2
 

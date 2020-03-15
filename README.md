@@ -9,9 +9,15 @@ Upgrade your coding experience with these dotfiles
 3. Git
 
 ### Future Considerations
-4. Tmux
-5. zsh
-6. z
+4. brew
+5. ack
+6. git_completion OR bash_completion
+6. Tmux
+7. zsh
+8. z
+9. tree
+10. fzf
+11. gitignore
 
 ## Installation
 ```
@@ -22,4 +28,5 @@ make all
 ```
 
 ### Acknowledgement
-Based on an existing git repo - https://github.com/eemp/dotfiles
+1. Based on an existing git repo - https://github.com/eemp/dotfiles
+2. https://sourabhbajaj.com/mac-setup/iTerm/
