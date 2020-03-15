@@ -72,9 +72,11 @@ set foldlevelstart=99
 " > SEARCHING
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ignore case when searching
+" ignorecase OR ic
 set ignorecase
 
 " When searching try to be smart about cases
+" smartcase OR sc
 set smartcase
 
 " Highlight search results
@@ -169,3 +171,21 @@ endif
 " set timeoutlen=109    " timeout after 100 msec
 " set nocompatible      " this would be needed if we did not have a user vimrc file
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" > BETTER SPLIT NAVIGATION (ONLY WORKS WHEN YOU HAVE SPLITS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" How come they are not like <C-J> <C-W>J?
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" > CUSTOM VIMDIFF COLORSCHEME
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+highlight DiffAdd    cterm=bold ctermfg=15 ctermbg=27 gui=none guifg=bg guibg=Red
+highlight DiffDelete cterm=bold ctermfg=15 ctermbg=27 gui=none guifg=bg guibg=Red
+highlight DiffChange cterm=bold ctermfg=15 ctermbg=27 gui=none guifg=bg guibg=Red
+highlight DiffText   cterm=bold ctermfg=15 ctermbg=88 gui=none guifg=bg guibg=Red
