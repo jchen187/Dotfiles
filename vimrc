@@ -11,10 +11,9 @@ endfunction
 " call SourceIfExists("/etc/vimrc")
 
 
-"""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VUNDLE
-"""""""""""""""""
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
