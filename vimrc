@@ -1,5 +1,8 @@
 " echo ">^.^< Hello Johnny!"
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" > LOAD OTHER VIMRC IF NECESSARY
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Function to source only if file exists {
 function! SourceIfExists(file)
   if filereadable(expand(a:file))
@@ -10,20 +13,19 @@ endfunction
 
 " call SourceIfExists("/etc/vimrc")
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VUNDLE
+" > VUNDLE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
+" Set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
+" Alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
+" Let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
 " Plugin overrides
@@ -127,6 +129,10 @@ colorscheme PaperColor
 
 " highlight OR hi
 highlight LineNr ctermfg=grey
+
+" Mark 80th character on a line
+highlight colorcolumn ctermbg=magenta
+call matchadd('colorcolumn', '\%80v', 100)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " > VISUAL [TEMPORARY - COMMENT LATER]
@@ -264,7 +270,6 @@ nnoremap <C-H> <C-W><C-H>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " > CUSTOM VIMDIFF COLORSCHEME
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 highlight DiffAdd    cterm=bold ctermfg=15 ctermbg=27 gui=none guifg=bg guibg=Red
 highlight DiffDelete cterm=bold ctermfg=15 ctermbg=27 gui=none guifg=bg guibg=Red
 highlight DiffChange cterm=bold ctermfg=15 ctermbg=27 gui=none guifg=bg guibg=Red
@@ -276,13 +281,13 @@ highlight DiffText   cterm=bold ctermfg=15 ctermbg=88 gui=none guifg=bg guibg=Re
 " au OR autocmd
 au BufRead,BufNewFile *.ipy set filetype=python
 au BufRead,BufNewFile *.json set filetype=json
-au BufRead,BufNewFile *.rest set filetype=rest 
+au BufRead,BufNewFile *.rest set filetype=rest
 
 " Remove trailing whitespace
 autocmd BufWritePre * %s/\s\+$//e
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" > CTRLP 
+" > CTRLP
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TODO - CHANGE THE USER COMMAND TO ACK - CHECK TO SEE ACK IS AVAILABLE FIRST
 " let g:ctrlp_user_command = 'ack'
@@ -319,3 +324,139 @@ let g:ctrlp_custom_ignore = {
   "let g:ctrlp_user_command = rg_command
 "endif
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" > TERMINAL EMULATOR
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" > BETTER PATH COMPLETION
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set wildmode=longest,list,full
+set wildmenu
+
+" Set vim to chdir for each file
+cabbr <expr> %% expand('%:p:h')
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" > BUFFERS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! BufSel(pattern)
+  let bufcount = bufnr("$")
+  let currbufnr = 1
+  let nummatches = 0
+  let firstmatchingbufnr = 0
+  while currbufnr <= bufcount
+    if(bufexists(currbufnr))
+      let currbufname = bufname(currbufnr)
+      if(match(currbufname, a:pattern) > -1)
+        echo currbufnr . ": ". bufname(currbufnr)
+        let nummatches += 1
+        let firstmatchingbufnr = currbufnr
+      endif
+    endif
+    let currbufnr = currbufnr + 1
+  endwhile
+  if(nummatches == 1)
+    execute ":buffer ". firstmatchingbufnr
+  elseif(nummatches > 1)
+    let desiredbufnr = input("Enter buffer number: ")
+    if(strlen(desiredbufnr) != 0)
+      execute ":buffer ". desiredbufnr
+    endif
+  else
+    echo "No matching buffers"
+  endif
+endfunction
+
+" Bind the BufSel() function to a user-command
+command! -nargs=1 Bs :call BufSel("<args>")
+
+" No prompt for unsaved changes while switching buffers
+set hidden
+
+" Close buffers without changing layout
+map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" > MISCELLANEOUS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Avoid scanning includes for autocompletion - slows it down
+set complete-=i
+
+" Avoid delay after esc to return to normal mode
+"set timeoutlen=10 ttimeoutlen=0
+
+" Flagship
+set laststatus=2
+set showtabline=2
+set guioptions-=e
+
+" vim-jsx
+let g:jsx_ext_required = 0
+
+"set ttimeoutlen=10
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" > LARGE FILES
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Handle files that are larger from 10mb
+let g:LargeFile = 1024 * 1024 * 10
+augroup LargeFile
+ autocmd BufReadPre * let f=getfsize(expand("<afile>")) | if f > g:LargeFile || f == -2 | call LargeFile() | endif
+augroup END
+
+function LargeFile()
+ " No syntax highlighting etc
+ set eventignore+=FileType
+ " Save memory when other file is viewed
+ setlocal bufhidden=unload
+ " Is read-only (write with :w new_filename)
+ setlocal buftype=nowrite
+ " No undo possible
+ setlocal undolevels=-1
+ " Display message
+ autocmd VimEnter *  echo "The file is larger than " . (g:LargeFile / 1024 / 1024) . " MB, so some options are changed (see .vimrc for details)."
+endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" > SYNTASTIC
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_json_checkers = ['jsonlint']
+
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 0
+"let g:syntastic_check_on_open = 0
+"let g:syntastic_check_on_wq = 0
+
+"let g:syntastic_error_symbol = '✗'
+"let g:syntastic_warning_symbol = '!'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" > YCM & SNIPPETS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:ycm_python_binary_path = 'python'
+"let g:ycm_server_python_interpreter = '/usr/bin/python'
+"let g:UltiSnipsEditSplit="vertical"
+"
+"" If you want :UltiSnipsEdit to split your window.
+"" YouCompleteMe and UltiSnips compatibility, with the helper of supertab
+"" (via http://stackoverflow.com/a/22253548/1626737)
+"" make YCM compatible with UltiSnips (using supertab)
+"let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+"let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+"let g:SuperTabDefaultCompletionType = '<C-n>'
+"let g:SuperTabCrMapping = 0
+"
+"" Better key bindings for UltiSnipsExpandTrigger
+"let g:UltiSnipsSnippetDirectories = [$HOME.'/dotfiles/vim/UltiSnips']
+"let g:UltiSnipsExpandTrigger = "<tab>"
+"let g:UltiSnipsJumpForwardTrigger      = '<C-l>'
+"let g:UltiSnipsJumpBackwardTrigger     = '<C-k>'
