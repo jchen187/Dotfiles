@@ -31,6 +31,8 @@ cleanUp:
 brew:
 	@echo "Checking if you already has brew or ack"
 ### TODO: Do we have brew or ack? You should be able to check with "which"
+	@echo "Installing brew..."
+	
 	@echo "Installing ack..."
 	brew install ack
 	@echo "Installing git..."

@@ -7,17 +7,17 @@ Upgrade your coding experience with these dotfiles
 1. Bash
 2. Vim
 3. Git
-
-### Future Considerations
 4. brew
 5. ack
 6. git_completion OR bash_completion
-6. Tmux
-7. zsh - https://scriptingosx.com/2019/07/moving-to-zsh-part-5-completions/
-8. z
-9. tree
-10. fzf
-11. gitignore
+
+### Future Considerations
+- Tmux - https://deliciousbrains.com/tmux-for-local-development/
+- zsh - https://scriptingosx.com/2019/07/moving-to-zsh-part-5-completions/
+- z
+- tree
+- fzf
+- gitignore
 
 ## Installation
 ```
