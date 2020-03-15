@@ -27,11 +27,16 @@ cleanUp:
 	cd ..
 	rm -rf ${CURRENT_DIRECTORY}
 
-ack:
+## setup ack and git completion
+brew:
 	@echo "Checking if you already has brew or ack"
 ### TODO: Do we have brew or ack? You should be able to check with "which"
 	@echo "Installing ack..."
 	brew install ack
+	@echo "Installing git..."
+## TODO - install git through brew to make sure we can do git completion
+	brew install git
+# 	source ~/.bash_profile
 
 bash:
 	@echo "Updating your .bashrc..."
