@@ -27,6 +27,12 @@ cleanUp:
 	cd ..
 	rm -rf ${CURRENT_DIRECTORY}
 
+ack:
+	@echo "Checking if you already has brew or ack"
+### TODO: Do we have brew or ack? You should be able to check with "which"
+	@echo "Installing ack..."
+	brew install ack
+
 bash:
 	@echo "Updating your .bashrc..."
 # Native Makefile syntax
