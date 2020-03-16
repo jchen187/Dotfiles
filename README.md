@@ -18,6 +18,7 @@ Upgrade your coding experience with these dotfiles
 - tree
 - fzf
 - gitignore
+- bash-snippets - https://www.ostechnix.com/collection-useful-bash-scripts-heavy-commandline-users/
 
 ## Installation
 ```
@@ -30,3 +31,4 @@ make all
 ### Acknowledgement
 1. Based on an existing git repo - https://github.com/eemp/dotfiles
 2. https://sourabhbajaj.com/mac-setup/iTerm/
+3. Bash snippets
