@@ -26,18 +26,20 @@ cleanUp:
 	CURRENT_DIRECTORY=${PWD}
 	cd ..
 	rm -rf ${CURRENT_DIRECTORY}
+	@echo "4. Removing brew, ack and brew git?"
+# ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
 
 ## setup ack and git completion
 brew:
 	@echo "Checking if you already has brew or ack"
 ### TODO: Do we have brew or ack? You should be able to check with "which"
 	@echo "Installing brew..."
-	
+#	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 	@echo "Installing ack..."
-	brew install ack
+#	brew install ack
 	@echo "Installing git..."
 ## TODO - install git through brew to make sure we can do git completion
-	brew install git
+#	brew install git
 # 	source ~/.bash_profile
 
 bash:
