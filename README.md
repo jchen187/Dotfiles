@@ -33,3 +33,4 @@ make all
 1. Based on an existing git repo - https://github.com/eemp/dotfiles
 2. https://sourabhbajaj.com/mac-setup/iTerm/
 3. Bash snippets
+4. Tmux - https://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/

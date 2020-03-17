@@ -41,6 +41,8 @@ brew:
 ## TODO - install git through brew to make sure we can do git completion
 #	brew install git
 # 	source ~/.bash_profile
+	@echo "Installing tmux"
+# brew install tmux"
 
 bash:
 	@echo "Updating your .bashrc..."
@@ -93,3 +95,6 @@ vundle:
 ## TODO - check if we already have something here - ~/.vim/bundle/Vundle.vim
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	vim +PluginInstall +qall
+
+tmux:
+	@echo "Updating your tmuxconfig"
