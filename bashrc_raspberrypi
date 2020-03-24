@@ -57,7 +57,7 @@ alias helpGrep="echo 'grep -ir PHASE PATH'"
 ## ------------- Bashrc-------------
 alias editBash="vim ~/.bashrc"
 alias updateBash="source ~/.bashrc"
-alias setupBash="cd ~/Projects; rm -rf Dotfiles; git clone https://github.com/jchen187/Dotfiles.git; cd Dotfiles; make raspberrypi; updateBash"
+alias setupBash="cd ~/Projects; sudo rm -rf Dotfiles; sudo git clone https://github.com/jchen187/Dotfiles.git; cd Dotfiles; make raspberrypi; updateBash"
 
 ## ------------- Processes and Port -------------
 alias listProcesses='ps aux'
