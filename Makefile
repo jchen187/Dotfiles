@@ -98,3 +98,19 @@ vundle:
 
 tmux:
 	@echo "Updating your tmuxconfig"
+
+raspberrypi:
+	@echo "Updating your .bashrc..."
+# NOTICE YOU NEED TO HAVE THE ; and the \.
+# We force symlink with the -f option, so we dont have to remove the files
+# We dont need to `source ~/.bashrc` because we do so in the bash_profile
+# Shell Scripting Syntax
+	@if [ -f ~/.bashrc ] && [ ! -L ~/.bashrc ]; \
+	then \
+		echo "1. Making backup copy of existing bashrc located in ~/.bashrc_bak"; \
+		mv ~/.bashrc ~/.bashrc_bak; \
+	fi
+	@echo "2. Creating symlink"
+	ln -sf ${PWD}/bashrc_raspberrypi ~/.bashrc
+	ln -sf ${PWD}/bash_profile ~/.bash_profile
+	source ~/.bash_profile
