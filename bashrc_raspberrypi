@@ -16,9 +16,9 @@ Reset='\[\e[00m\]'
 # Edit terminal prompt
 # PS1="$Cyan\d $Green\t $Yellow\u@\h: $Purple\w"
 # PS1="$Cyan\t $Green\u:$Purple$(get_git_branch) "
-PS1="$Cyan\d $Green\t $Purple\u@\h: \w"
+PS1="$Cyan\d $Green\t $Purple\u@\h: "
 # If outside of your home directory, print the current directory in orange, yellow otherwise.
-if [[ $PWD/ != /Users/$USER/* ]]; then
+if [[ $PWD/ != /home/$USER/Projects/* ]]; then
 PS1+="$Orange\\w "
 else
 PS1+="$Yellow\\w "
@@ -57,6 +57,7 @@ alias helpGrep="echo 'grep -ir PHASE PATH'"
 ## ------------- Bashrc-------------
 alias editBash="vim ~/.bashrc"
 alias updateBash="source ~/.bashrc"
+alias setupBash="cd ~/Projects; rm -rf Dotfiles; git clone https://github.com/jchen187/Dotfiles.git; make raspberrypi; updateBash"
 
 ## ------------- Processes and Port -------------
 alias listProcesses='ps aux'
