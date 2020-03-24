@@ -1,5 +1,5 @@
 # RaspberryPi - when you open up any terminal, the bash profile is accessed before the bashrc
-echo "2. ENTERING BASHRC"
+echo "1. ENTERING BASHRC"
 
 ## ------------- Terminal Prompt -------------
 # You can have the color begin in 0; or 1; - It seems like 1 makes the text a bit bolder and hence a bit brighter

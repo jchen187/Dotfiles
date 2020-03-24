@@ -112,4 +112,4 @@ raspberrypi:
 	fi
 	@echo "2. Creating symlink"
 	ln -sf ${PWD}/bashrc_raspberrypi ~/.bashrc
-	. ~/.bash_rc
+	. ~/.bashrc
