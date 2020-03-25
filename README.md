@@ -21,12 +21,17 @@ Upgrade your coding experience with these dotfiles
 - gitignore
 - bash-snippets - https://www.ostechnix.com/collection-useful-bash-scripts-heavy-commandline-users/
 
-## Installation
+## Installation (Mac vs Raspberry Pi)
 ```
 cd ~
 git clone https://github.com/jchen187/Dotfiles.git
 cd Dotfiles
+
+// Mac
 make all
+
+// Raspberry Pi
+make raspberrypi
 ```
 
 ### Acknowledgement
