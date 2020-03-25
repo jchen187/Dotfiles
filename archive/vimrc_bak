@@ -1,0 +1,463 @@
+"DONE--"  " echo ">^.^< Hello Johnny!"
+"DONE--"
+"DONE--"  " Function to source only if file exists {
+"DONE--"  function! SourceIfExists(file)
+"DONE--"    if filereadable(expand(a:file))
+"DONE--"      exe 'source' a:file
+"DONE--"    endif
+"DONE--"  endfunction
+"DONE--"  " }
+"DONE--"
+"DONE--"  " call SourceIfExists("/etc/vimrc")
+"DONE--"
+"DONE--"  """""""""""""""""
+"DONE--"  " VUNDLE
+"DONE--"  """""""""""""""""
+"DONE--"
+"DONE--"  set nocompatible              " be iMproved, required
+"DONE--"  filetype off                  " required
+"DONE--"
+"DONE--"  " set the runtime path to include Vundle and initialize
+"DONE--"  set rtp+=~/.vim/bundle/Vundle.vim
+"DONE--"  call vundle#begin()
+"DONE--"  " alternatively, pass a path where Vundle should install plugins
+"DONE--"  "call vundle#begin('~/some/path/here')
+"DONE--"
+"DONE--"  " let Vundle manage Vundle, required
+"DONE--"  Plugin 'VundleVim/Vundle.vim'
+"DONE--"
+"DONE--"  " Plugin overrides
+"DONE--"  let g:PaperColor_Dark_Override = { 'comment' : '#5f875f' }
+"DONE--"
+"DONE--"  " The following are examples of different formats supported.
+"DONE--"  " Keep Plugin commands between vundle#begin/end.
+"DONE--"  " plugin on GitHub repo
+"DONE--"  " Plugin 'tpope/vim-fugitive'
+"DONE--"  Plugin 'airblade/vim-gitgutter'
+"DONE--"  Plugin 'bling/vim-bufferline'
+"DONE--"  Plugin 'ctrlpvim/ctrlp.vim'
+"DONE--"  " Plugin 'dart-lang/dart-vim-plugin'
+"DONE--"  Plugin 'elzr/vim-json'
+"DONE--"  Plugin 'ervandew/supertab'
+"DONE--"  Plugin 'NLKNguyen/papercolor-theme'
+"DONE--"  Plugin 'scrooloose/nerdcommenter'
+"DONE--"  Plugin 'scrooloose/nerdtree'
+"DONE--"  " Plugin 'scrooloose/syntastic'
+"DONE--"  " Plugin 'SirVer/ultisnips'
+"DONE--"  Plugin 'tpope/vim-flagship'
+"DONE--"  Plugin 'tpope/vim-fugitive'
+"DONE--"  Plugin 'tpope/vim-sensible'
+"DONE--"  Plugin 'tpope/vim-sleuth'
+"DONE--"  Plugin 'tpope/vim-surround'
+"DONE--"  " Plugin 'Valloric/YouCompleteMe'
+"DONE--"  Plugin 'vim-scripts/grep.vim'
+"DONE--"
+"DONE--"  "let g:javascript_conceal_function             = "ƒ"
+"DONE--"  "let g:javascript_conceal_null                 = "ø"
+"DONE--"  "let g:javascript_conceal_undefined            = "¿"
+"DONE--"  "let g:javascript_conceal_NaN                  = "ℕ"
+"DONE--"  "let g:javascript_conceal_arrow_function       = "⇒"
+"DONE--"  "set conceallevel=1
+"DONE--"  Plugin 'pangloss/vim-javascript'
+"DONE--"
+"DONE--"  Plugin 'mxw/vim-jsx'
+"DONE--"  "Plugin 'Valloric/MatchTagAlways'
+"DONE--"
+"DONE--"  "Not sure why Mihir commented this line out. It prevents folding
+"DONE--"  "let g:vim_markdown_folding_disabled = 1
+"DONE--"  Plugin 'godlygeek/tabular'
+"DONE--"  Plugin 'plasticboy/vim-markdown'
+"DONE--"
+"DONE--"  let g:vrc_trigger = '<C-n>'
+"DONE--"  let g:vrc_show_command = 1
+"DONE--"  Plugin 'diepm/vim-rest-console'
+"DONE--"
+"DONE--"  "let's keep vim simple
+"DONE--"  "Plugin 'Raimondi/delimitMate'
+"DONE--"
+"DONE--"  " All of your Plugins must be added before the following line
+"DONE--"  call vundle#end()            " required
+"DONE--"  filetype plugin indent on    " required
+"DONE--"  " To ignore plugin indent changes, instead use:
+"DONE--"  "filetype plugin on
+"DONE--"  "
+"DONE--"  " Brief help
+"DONE--"  " :PluginList       - lists configured plugins
+"DONE--"  " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+"DONE--"  " :PluginSearch foo - searches for foo; append `!` to refresh local cache
+"DONE--"  " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"DONE--"  "
+"DONE--"  " see :h vundle for more details or wiki for FAQ
+"DONE--"  " Put your non-Plugin stuff after this line
+"DONE--"
+"DONE--"  """""""""""""""""
+"DONE--"  " CTRL P [MOVE TO CUSTOM CTRLP SECTION??]
+"DONE--"  """""""""""""""""
+"DONE--"  " FILES TO IGNORE
+"DONE--"  let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+"DONE--"  " TURN OFF CTRLP IF NECESSARY
+"DONE--"  " let g:loaded_ctrlp = 1
+"DONE--"
+"DONE--"  au BufRead,BufNewFile *.ipy set filetype=python
+"DONE--"  au BufRead,BufNewFile *.json set filetype=json
+"DONE--"  au BufRead,BufNewFile *.rest set filetype=rest
+"DONE--"
+"DONE--"
+"DONE--"  """"""""""""""""""
+"DONE--"  " > GENERAL
+"DONE--"  """"""""""""""""""
+"DONE--"  "
+"DONE--"  set nomodeline
+"DONE--"
+"DONE--"  " Set to auto read when a file is changed from the outside
+"DONE--"  set autoread
+"DONE--"
+"DONE--"  " Set utf8 as standard encoding and en_US as the standard language
+"DONE--"  set encoding=utf8
+"DONE--"
+"DONE--"  " Use Unix as the standard file type
+"DONE--"  set ffs=unix,dos,mac
+"DONE--"
+"DONE--"  " Show matching brackets when text indicator is over them
+"DONE--"  set showmatch
+"DONE--"
+"DONE--"  " line numbers
+"DONE--"  set nu
+"DONE--"  map <C-n> :set nu!<cr>
+"DONE--"
+"DONE--"  " comma is more convenient for leader
+"DONE--"  let mapleader=","
+"DONE--"
+"DONE--"  """""""""""""""""""""
+"DONE--"  " > VISUAL
+"DONE--"  """""""""""""""""""""
+"DONE--"  " Enable syntax highlighting
+"DONE--"  "syntax enable
+"DONE--"  set t_Co=256
+"DONE--"  set background=dark
+"DONE--"  colorscheme PaperColor
+"DONE--"
+"DONE--"  highlight LineNr ctermfg=grey
+"DONE--"
+"DONE--"  """""""""""""""""""""""
+"DONE--"  " > FOLDING (I ADDED THIS. COPY FROM STANLEY)
+"DONE--"  """"""""""""""""""""""""
+"DONE--"  set foldmethod=indent
+"DONE--"  set foldlevelstart=99 "start file with all folds opened
+"DONE--"  "https://medium.com/vim-drops/javascript-folding-on-vim-119c70d2e872
+"DONE--"
+"DONE--"  """"""""""""""""""""""""
+"DONE--"  " > SEARCHING
+"DONE--"  """"""""""""""""""""""""
+"DONE--"  " Ignore case when searching
+"DONE--"  set ignorecase
+"DONE--"
+"DONE--"  " When searching try to be smart about cases
+"DONE--"  set smartcase
+"DONE--"
+"DONE--"  " Highlight search results
+"DONE--"  set hlsearch
+"DONE--"
+"DONE--"  " Makes search act like search in modern browsers
+"DONE--"  set incsearch
+"DONE--"
+"DONE--"  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"DONE--"  " > Files, backups and undo
+"DONE--"  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"DONE--"  " Turn backup off, since most stuff is in SVN, git et.c anyway...
+"DONE--"  set nobackup
+"DONE--"  set nowb
+"DONE--"  set noswapfile
+"DONE--"
+"DONE--"
+"DONE--"  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"DONE--"  " > Text, tab and indent related
+"DONE--"  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"DONE--"  " Use spaces instead of tabs
+"DONE--"  set expandtab
+"DONE--"
+"DONE--"  " Be smart when using tabs ;)
+"DONE--"  set smarttab
+"DONE--"
+"DONE--"  " 1 tab == 4 spaces
+"DONE--"  set shiftwidth=2
+"DONE--"  set tabstop=2
+"DONE--"
+"DONE--"  set ai "Auto indent
+"DONE--"  set si "Smart indent
+"DONE--"
+"DONE--"  "make < > shifts and keep selection afterward
+"DONE--"  vnoremap < <gv
+"DONE--"  vnoremap > >gv
+"DONE--"
+"DONE--"  " Show trailing and preceding spaces
+"DONE--"  set list
+"DONE--"  set listchars=tab:>-,trail:~,extends:>,precedes:<
+"DONE--"
+"DONE--"  """"""""""""""""""""""""""""""
+"DONE--"  " > Status line
+"DONE--"  """"""""""""""""""""""""""""""
+"DONE--"  " Always show the status line
+"DONE--"  set laststatus=2
+"DONE--"
+"DONE--"  " Format the status line
+"DONE--"  set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+"DONE--"
+"DONE--"  """"""""""""""""""""""""""""""
+"DONE--"  " > MOUSE
+"DONE--"  """"""""""""""""""""""""""""""
+"DONE--"  " Send more characters for redraws
+"DONE--"  set ttyfast
+"DONE--"
+"DONE--"  " Enable mouse use in all modes
+"DONE--"  if has('mouse')
+"DONE--"      set mouse=a
+"DONE--"  endif
+"DONE--"
+"DONE--"  " Set this to the name of your terminal that supports mouse codes.
+"DONE--"  " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
+"DONE--"  if !has('nvim')
+"DONE--"    set ttymouse=xterm2
+"DONE--"  endif
+"DONE--"
+"DONE--"  """""""""""""""""""""""""""""""
+"DONE--"  " > CUSTOM CTRLP FROM MIHIR
+"DONE--"  """""""""""""""""""""""""""""""
+"DONE--"
+"DONE--"  "let g:ctrlp_user_command = 'find %s -name "*.js" -o -name "*.pm" -o -name "*.pl" -o -name "*.config" -type f'
+"DONE--"  " NOT SURE WHY THE BELOW LINE STOPPED WORKING. DOES IT HAVE SOMETHING TO DO
+"DONE--"  " WITH CHANGES TO FIND AND GREP I MADE EARLIER
+"DONE--"  "let g:ctrlp_user_command = 'find %s -type f | grep -v "`cat ~/.ctrlpignore`"'
+"DONE--"  let g:ctrlp_root_markers = ['.ctrlp']
+"DONE--"
+"DONE--"  """""""""""""""""""""""""""""""
+"DONE--"  " > CUSTOM CTRLP FROM KELVIN TO CACHE FOR FASTER RESULTS
+"DONE--"  """""""""""""""""""""""""""""""
+"DONE--"  :map <C-l> :CtrlPBuffer<CR>
+"DONE--"  let g:ctrlp_follow_symlinks = 1
+"DONE--"  let g:ctrlp_cache_dir = '~/.cache/ctrlp'
+"DONE--"  let g:ctrlp_clear_cache_on_exit = 0
+"DONE--"  let g:ctrlp_max_files = 20000
+"DONE--"  let g:ctrlp_working_path_mode = 'w'
+"DONE--"  let g:ctrlp_custom_ignore = {
+"DONE--"        \ 'dir': '\v[\/](\.git|node_modules|mason)$',
+"DONE--"        \}
+"DONE--"
+"DONE--"  "let ripgrep = '/home/nick/myapps/bin/rg'
+"DONE--"  "if executable(ripgrep)
+"DONE--"    "let rg_options = '--files --follow --color=never --glob "!node_modules"'
+"DONE--"    "let rg_sort_by_length = "awk '{print length, $0}' | sort -n | awk '{ print $2 }'"
+"DONE--"    "let rg_base_command = ripgrep . " %s " . rg_options
+"DONE--"    "let rg_command = rg_base_command . " | " . rg_sort_by_length
+"DONE--"    "let g:ctrlp_user_command = rg_command
+"DONE--"  "endif
+"DONE--"
+"DONE--"  " let g:ctrlp_user_command = 'ack'
+"DONE--"
+"DONE--"  """""""""""""""""""""""""""""""
+"DONE--"  " > CUSTOM DIFF COLORSCHEME
+"DONE--"  """""""""""""""""""""""""""""""
+"DONE--"
+"DONE--"  highlight DiffAdd    cterm=bold ctermfg=15 ctermbg=27 gui=none guifg=bg guibg=Red
+"DONE--"  highlight DiffDelete cterm=bold ctermfg=15 ctermbg=27 gui=none guifg=bg guibg=Red
+"DONE--"  highlight DiffChange cterm=bold ctermfg=15 ctermbg=27 gui=none guifg=bg guibg=Red
+"DONE--"  highlight DiffText   cterm=bold ctermfg=15 ctermbg=88 gui=none guifg=bg guibg=Red
+"DONE--"
+"DONE--"  """"""""""""""""""""""""""""""
+"DONE--"  " > BUFFERS
+"DONE--"  """"""""""""""""""""""""""""""
+"DONE--"  function! BufSel(pattern)
+"DONE--"    let bufcount = bufnr("$")
+"DONE--"    let currbufnr = 1
+"DONE--"    let nummatches = 0
+"DONE--"    let firstmatchingbufnr = 0
+"DONE--"    while currbufnr <= bufcount
+"DONE--"      if(bufexists(currbufnr))
+"DONE--"        let currbufname = bufname(currbufnr)
+"DONE--"        if(match(currbufname, a:pattern) > -1)
+"DONE--"          echo currbufnr . ": ". bufname(currbufnr)
+"DONE--"          let nummatches += 1
+"DONE--"          let firstmatchingbufnr = currbufnr
+"DONE--"        endif
+"DONE--"      endif
+"DONE--"      let currbufnr = currbufnr + 1
+"DONE--"    endwhile
+"DONE--"    if(nummatches == 1)
+"DONE--"      execute ":buffer ". firstmatchingbufnr
+"DONE--"    elseif(nummatches > 1)
+"DONE--"      let desiredbufnr = input("Enter buffer number: ")
+"DONE--"      if(strlen(desiredbufnr) != 0)
+"DONE--"        execute ":buffer ". desiredbufnr
+"DONE--"      endif
+"DONE--"    else
+"DONE--"      echo "No matching buffers"
+"DONE--"    endif
+"DONE--"  endfunction
+"DONE--"
+"DONE--"  "Bind the BufSel() function to a user-command
+"DONE--"  command! -nargs=1 Bs :call BufSel("<args>")
+"DONE--"
+"DONE--"  "No prompt for unsaved changes while switching buffers
+"DONE--"  set hidden
+"DONE--"
+"DONE--"  "Close buffers without changing layout
+"DONE--"  map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+"DONE--"
+"DONE--"  """""""""""""""""""""""""""""""""
+"DONE--"  " > TERMINAL EMULATOR
+"DONE--"  """""""""""""""""""""""""""""""""
+"DONE--"  if has('nvim')
+"DONE--"    tnoremap <Esc> <C-\><C-n>
+"DONE--"  endif
+"DONE--"
+"DONE--"  """""""""""""""""""""""""""""""""
+"DONE--"  " > Better split nav
+"DONE--"  """""""""""""""""""""""""""""""""
+"DONE--"  nnoremap <C-J> <C-W><C-J>
+"DONE--"  nnoremap <C-K> <C-W><C-K>
+"DONE--"  nnoremap <C-L> <C-W><C-L>
+"DONE--"  nnoremap <C-H> <C-W><C-H>
+"DONE--"
+"DONE--"  """"""""""""""""""""""""""""""""
+"DONE--"  " > Better path completion
+"DONE--"  """"""""""""""""""""""""""""""""
+"DONE--"  set wildmode=longest,list,full
+"DONE--"  set wildmenu
+"DONE--"
+"DONE--"  " set vim to chdir for each file
+"DONE--"  cabbr <expr> %% expand('%:p:h')
+"DONE--"
+"DONE--"  """""""""""""""""""""""""""""""
+"DONE--"  " > Miscellaneous
+"DONE--"  """""""""""""""""""""""""""""""
+"DONE--"  "avoid scanning includes for autocompletion - slows it down
+"DONE--"  set complete-=i
+"DONE--"
+"DONE--"  "avoid delay after esc to return to normal mode
+"DONE--"  "set timeoutlen=10 ttimeoutlen=0
+"DONE--"
+"DONE--"  " mark 80th character on a line
+"DONE--"  highlight colorcolumn ctermbg=magenta
+"DONE--"  call matchadd('colorcolumn', '\%80v', 100)
+"DONE--"
+"DONE--"  " flagship
+"DONE--"  set laststatus=2
+"DONE--"  set showtabline=2
+"DONE--"  set guioptions-=e
+"DONE--"
+"DONE--"  " syntastic
+"DONE--"  "let g:syntastic_javascript_checkers = ['eslint']
+"DONE--"  "let g:syntastic_json_checkers = ['jsonlint']
+"DONE--"
+"DONE--"  "set statusline+=%#warningmsg#
+"DONE--"  "set statusline+=%{SyntasticStatuslineFlag()}
+"DONE--"  "set statusline+=%*
+"DONE--"
+"DONE--"  "let g:syntastic_always_populate_loc_list = 1
+"DONE--"  "let g:syntastic_auto_loc_list = 0
+"DONE--"  "let g:syntastic_check_on_open = 0
+"DONE--"  "let g:syntastic_check_on_wq = 0
+"DONE--"
+"DONE--"  "let g:syntastic_error_symbol = '✗'
+"DONE--"  "let g:syntastic_warning_symbol = '!'
+"DONE--"
+"DONE--"
+"DONE--"  " vim-jsx
+"DONE--"  let g:jsx_ext_required = 0
+"DONE--"
+"DONE--"  " remove trailing whitespace
+"DONE--"  autocmd BufWritePre * %s/\s\+$//e
+"DONE--"
+"DONE--"  "set ttimeoutlen=10
+"DONE--"
+"DONE--"  " improve experience with large files
+"DONE--"
+"DONE--"
+"DONE--"  " file is large from 10mb
+"DONE--"  let g:LargeFile = 1024 * 1024 * 10
+"DONE--"  augroup LargeFile
+"DONE--"   autocmd BufReadPre * let f=getfsize(expand("<afile>")) | if f > g:LargeFile || f == -2 | call LargeFile() | endif
+"DONE--"  augroup END
+"DONE--"
+"DONE--"  function LargeFile()
+"DONE--"   " no syntax highlighting etc
+"DONE--"   set eventignore+=FileType
+"DONE--"   " save memory when other file is viewed
+"DONE--"   setlocal bufhidden=unload
+"DONE--"   " is read-only (write with :w new_filename)
+"DONE--"   setlocal buftype=nowrite
+"DONE--"   " no undo possible
+"DONE--"   setlocal undolevels=-1
+"DONE--"   " display message
+"DONE--"   autocmd VimEnter *  echo "The file is larger than " . (g:LargeFile / 1024 / 1024) . " MB, so some options are changed (see .vimrc for details)."
+"DONE--"  endfunction
+"DONE--"
+"DONE--"  " ycm & snippets
+"DONE--"  let g:ycm_python_binary_path = 'python'
+"DONE--"  let g:ycm_server_python_interpreter = '/usr/bin/python'
+"DONE--"  let g:UltiSnipsEditSplit="vertical"
+"DONE--"
+"DONE--"  " If you want :UltiSnipsEdit to split your window.
+"DONE--"  " YouCompleteMe and UltiSnips compatibility, with the helper of supertab
+"DONE--"  " (via http://stackoverflow.com/a/22253548/1626737)
+"DONE--"  " make YCM compatible with UltiSnips (using supertab)
+"DONE--"  let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+"DONE--"  let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+"DONE--"  let g:SuperTabDefaultCompletionType = '<C-n>'
+"DONE--"  let g:SuperTabCrMapping = 0
+"DONE--"
+"DONE--"  " better key bindings for UltiSnipsExpandTrigger
+"DONE--"  let g:UltiSnipsSnippetDirectories = [$HOME.'/dotfiles/vim/UltiSnips']
+"DONE--"  let g:UltiSnipsExpandTrigger = "<tab>"
+"DONE--"  let g:UltiSnipsJumpForwardTrigger      = '<C-l>'
+"DONE--"  let g:UltiSnipsJumpBackwardTrigger     = '<C-k>'
+
+"""""""""""""""""
+" ORIGINAL
+"""""""""""""""""
+
+
+"highlight => hi
+"colorscheme => colo
+
+" Show number for line
+" set number
+
+" See what line you are on
+" set cursorline
+" highlight CursorLine ctermbg=235
+
+" Have syntax coloring
+" syntax on
+" colorscheme or colo (desert or slate)
+" colo desert
+
+" Have ruler to see line number and column number
+" set ruler
+
+" Set tabs
+" set ts=4 sw=4 sts=4 et
+
+" Search as you type the phrase
+" set incsearch
+
+" Get highlighting for search
+" set hlsearch
+" hi Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
+" hi Search ctermfg=Yellow ctermbg=LightGray cterm=bold,underline
+
+" Set color of highlight in visual mode
+" hi Visual cterm=NONE
+
+" Set indent. autoindent indents the same as current line and smart indent looks at the syntax
+" set autoindent
+" set smartindent
+
+" Can use mouse to click within document and to scroll *THIS DOES NOT WORK IN TERMINALq
+" set mouse=a
+
+" Arrow keys sometimes stop working
+" set notimeout         " don't timeout on mappings
+" set ttimeout          " do timeout on terminal key codes
+" set timeoutlen=109    " timeout after 100 msec
+" set nocompatible      " this would be needed if we did not have a user vimrc file
