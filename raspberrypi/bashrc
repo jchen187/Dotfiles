@@ -1,6 +1,7 @@
 # RaspberryPi - when you open up any terminal, the bash profile is accessed before the bashrc
 echo "2. ENTERING BASHRC"
 
+set_prompt() {
 ## ------------- Terminal Prompt -------------
 # You can have the color begin in 0; or 1; - It seems like 1 makes the text a bit bolder and hence a bit brighter
 Red='\[\e[01;31m\]'
@@ -30,6 +31,10 @@ PS1+="$Yellow\w "
 fi
 # Reset the text color to the default.
 PS1+="\\\$$Reset "
+}
+
+# You need this in order to check where you are every time you press enter
+PROMPT_COMMAND='set_prompt'
 
 ## ------------- NVM -------------
 export NVM_DIR="$HOME/.nvm"
