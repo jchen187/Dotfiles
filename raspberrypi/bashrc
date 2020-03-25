@@ -18,7 +18,7 @@ Reset='\[\e[00m\]'
 # PS1="$Cyan\t $Green\u:$Purple$(get_git_branch) "
 PS1="$Cyan\d $Green\t $Purple\u@\h: "
 # If outside of your home directory, print the current directory in orange, yellow otherwise.
-if [ $PWD/ != /home/$USER/Projects/* ]; then
+if [[ $PWD/ != /home/$USER/Projects/* ]]; then
 PS1+="$Orange\w "
 else
 PS1+="$Yellow\w "
