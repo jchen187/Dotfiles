@@ -99,7 +99,7 @@ vundle:
 tmux:
 	@echo "Updating your tmuxconfig"
 
-raspberrypi:
+raspberry:
 	@echo "Updating your .bashrc..."
 # NOTICE YOU NEED TO HAVE THE ; and the \.
 # We force symlink with the -f option, so we dont have to remove the files

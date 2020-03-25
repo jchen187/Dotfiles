@@ -31,7 +31,7 @@ cd Dotfiles
 make all
 
 // Raspberry Pi
-make raspberrypi
+make raspberry
 ```
 
 ### Acknowledgement
