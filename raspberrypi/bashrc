@@ -1,5 +1,5 @@
 # RaspberryPi - when you open up any terminal, the bash profile is accessed before the bashrc
-echo "1. ENTERING BASHRC"
+echo "2. ENTERING BASHRC"
 
 ## ------------- Terminal Prompt -------------
 # You can have the color begin in 0; or 1; - It seems like 1 makes the text a bit bolder and hence a bit brighter
@@ -57,7 +57,7 @@ alias helpGrep="echo 'grep -ir PHASE PATH'"
 ## ------------- Bashrc-------------
 alias editBash="vim ~/.bashrc"
 alias updateBash="source ~/.bashrc"
-alias setupBash="cd ~/Projects; sudo rm -rf Dotfiles; sudo git clone https://github.com/jchen187/Dotfiles.git; cd Dotfiles; make raspberrypi; updateBash"
+alias setupBash="cd ~/Projects/Dotfiles; sudo git pull; make raspberrypi"
 
 ## ------------- Processes and Port -------------
 alias listProcesses='ps aux'

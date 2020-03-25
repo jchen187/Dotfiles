@@ -111,5 +111,6 @@ raspberrypi:
 		mv ~/.bashrc ~/.bashrc_bak; \
 	fi
 	@echo "2. Creating symlink"
-	ln -sf ${PWD}/bashrc_raspberrypi ~/.bashrc
-	. ~/.bashrc
+	ln -sf ${PWD}/raspberrypi/bashrc ~/.bashrc
+	ln -sf ${PWD}/raspberrypi/bash_profile ~/.bash_profile
+	. ~/.bash_profile
