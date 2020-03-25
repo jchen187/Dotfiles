@@ -24,7 +24,7 @@ PS1="$Cyan\d $Green\t $Purple\u@\h: "
 ## This works on Windows when you ssh but not Raspberry Pi
 ## if [[ $PWD/ != /home/$USER/Projects/* ]]; then
 ## https://unix.stackexchange.com/questions/6435/how-to-check-if-pwd-is-a-subdirectory-of-a-given-path
-if [[ $PWD != "${PWD##/home/$USER/Projects}" ]]; then
+if [[ $PWD == "${PWD##/home/$USER/Projects}" ]]; then
 PS1+="$Orange\w "
 else
 PS1+="$Yellow\w "
