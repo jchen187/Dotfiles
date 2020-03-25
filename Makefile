@@ -114,3 +114,5 @@ raspberrypi:
 	ln -sf ${PWD}/raspberrypi/bashrc ~/.bashrc
 	ln -sf ${PWD}/raspberrypi/bash_profile ~/.bash_profile
 	. ~/.bash_profile
+
+	ln -sf ${PWD}/raspberrypi/vimrc ~/.vimrc
