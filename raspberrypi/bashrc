@@ -67,6 +67,23 @@ alias helpGrep="echo 'grep -ir PHASE PATH'"
 alias editBash="vim ~/.bashrc"
 alias updateBash="source ~/.bashrc"
 alias setupBash="cd ~/Projects/Dotfiles; sudo git pull; make raspberrypi"
+alias bestVimColors="echo 'Windows Command Line
+------------
+pablo
+desert
+koehler
+parsec
+flattened_dark
+slate
+
+Raspberry Pi
+------------
+pablo
+parsec
+flattened_dark
+default
+desert
+slate'"
 
 ## ------------- Processes and Port -------------
 alias listProcesses='ps aux'
