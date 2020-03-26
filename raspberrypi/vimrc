@@ -56,6 +56,12 @@ Plugin 'tpope/vim-surround'
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/grep.vim'
 
+" TEST COLORS
+Plugin 'arcticicestudio/nord-vim'
+Plugin 'keith/parsec.vim'
+Plugin 'nightsense/carbonized'
+Plugin 'romainl/flattened'
+
 "let g:javascript_conceal_function             = "ƒ"
 "let g:javascript_conceal_null                 = "ø"
 "let g:javascript_conceal_undefined            = "¿"
