@@ -30,7 +30,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Plugin overrides
 let g:PaperColor_Dark_Override = { 'comment' : '#5f875f' }
-let g:dracula_colorterm = 0
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -43,7 +42,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'elzr/vim-json'
 Plugin 'ervandew/supertab'
 Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 " Plugin 'scrooloose/syntastic'
@@ -132,7 +130,6 @@ let mapleader=","
 set t_Co=256
 set background=dark
 " colorscheme PaperColor
-colorscheme dracula
 
 " highlight OR hi
 highlight LineNr ctermfg=grey
@@ -146,7 +143,7 @@ call matchadd('colorcolumn', '\%80v', 100)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " colorscheme OR colo
 " syntax on
-" colo pablo
+colo pablo
 " colo desert
 highlight Search ctermbg=DarkCyan ctermfg=Yellow
 " set cursorline

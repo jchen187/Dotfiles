@@ -30,6 +30,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Plugin overrides
 let g:PaperColor_Dark_Override = { 'comment' : '#5f875f' }
+let g:dracula_colorterm = 0
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -42,6 +43,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'elzr/vim-json'
 Plugin 'ervandew/supertab'
 Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 " Plugin 'scrooloose/syntastic'
