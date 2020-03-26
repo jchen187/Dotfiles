@@ -48,8 +48,9 @@ alias listAllGlobalNodeModules2="ls -l $(npm root -g)"
 
 ## ------------- Listing With Colors-------------
 # Edit colorscheme for when you list files
-export LS_COLORS="di=01;36" #Bold, cyan
 export LS_COLORS="di=00;100" #Regular, grey background
+export LS_COLORS="di=01;37;44" #Bold, blue background
+export LS_COLORS="di=01;36:ln=01;32" #Bold, cyan
 alias ls="ls --color=auto"
 
 ## ------------- Finding and Grepping -------------
