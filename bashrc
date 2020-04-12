@@ -36,22 +36,29 @@ PS1+="\\\$$Reset "
 PROMPT_COMMAND='set_prompt'
 
 ## ------------- NVM -------------
+## TODO - Check if nvm and node both exist
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm use default
+
+## echo "You are using node version $( node -v )"
 
 ## ------------- Node Modules -------------
 alias listAllGlobalNodeModules="npm list -g --depth=0"
 alias listAllGlobalNodeModules2="ls -l $(npm root -g)"
 # https://stackoverflow.com/questions/40593660/list-all-globally-installed-modules-with-one-command-in-ubuntu
 
-## ------------- Listing With Colors-------------
+## ------------- Listing With Colors -------------
 # Edit colorscheme for when you list files
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 # The first ls does not work for Mac. https://www.cyberciti.biz/faq/apple-mac-osx-terminal-color-ls-output-option/
 # alias lsOLD="ls --color=auto"
 alias ls="ls -G"
+
+## ------------- Moving -------------
+alias mv="mv -v"
 
 ## ------------- Finding and Grepping -------------
 alias findHere="find . -name"
