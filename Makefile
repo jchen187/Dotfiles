@@ -98,6 +98,14 @@ vundle:
 
 tmux:
 	@echo "Updating your tmuxconfig"
+	@if [ -f ~/.tmux.conf ] && [ ! -L ~/.tmux.conf ]; \
+	then \
+		echo "1. Making backup copy of existing tmuxconfig located in ~/.tmux.conf_bak"; \
+		mv ~/.bashrc ~/.bashrc_bak; \
+	fi
+	@echo "2. Creating symlink"
+	ln -sf ${PWD}/tmux.conf ~/.tmux.conf
+	tmux source ~/.tmux.conf
 
 raspberry:
 	@echo "Updating your .bashrc..."
