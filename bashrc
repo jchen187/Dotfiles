@@ -107,3 +107,51 @@ makeTempFileAndFolder() {
     touch $folderName/$fileName.docx;
     echo $folderName $fileName;
 }
+
+## -------------- Tmux --------------
+alias helpTmux="echo 'Your prefix might not be CTRL + B.
+
+Sessions
+------------
+tmux ls - list sessions
+
+tmux - create new session
+tmux new - create new session
+tmux -s SESSION_NAME - create session with name
+
+tmux a - attach to last session
+tmux a -t SESSION_NAME - attach to session with name
+tmux a NUMBER - attach to session with number name
+
+tmux kill-session -t SESSION_NAME - kill session with name
+tmux kill-session - kill newest one
+tmux kill-session -a - kill all but current
+tmux kill-session -a -t SESSION_NAME - kill all but one specified
+
+CTRL + B, :new<CR> - create a new session within a session
+CTRL + B, :new -s SESSION_NAME<CR> - create a new session named ... within a session
+CTRL + B, S - list all the sessions
+CTRL + B, ( or ) - switch session
+CTRL + B, D - detach session
+
+Windows
+------------
+CTRL + B, C - create a new window with shell
+CTRL + B, :new -n WINDOW_NAME<CR> - create a new window named ...
+CTRL + B, , - rename the current window
+CTRL + B, W - choose window from a list
+CTRL + B, 0 - swich to window 0
+CTRL + B, F - find window
+CTRL + B, & - kill window
+CTRL + B, . - move window - prompted for a new number
+CTRL + B, :movew<CR> - move to the next unused window
+
+Panes
+------------
+CTRL + B, % - split current pane horizontally into 2 panes |
+CTRL + B, \" - split current pane vertically into 2 panes -
+CTRL + B, O - go to next pane
+CTRL + B, Q - show pane numbers
+CTRL + B, ; - toggle between the current and previous pane
+CTRL + B, X - close the current pane (You have to confirm with y or n)
+CTRL + B, <SPACE> - toggle between layouts'";
