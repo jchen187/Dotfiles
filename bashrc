@@ -89,7 +89,8 @@ portsInUse() {
 ## ------------- Miscellaneous -------------
 LetsCodeDir="~/Desktop"
 alias createComponent="yo project"
-alias letsCode="echo -e '1. Type in editBash.\n2. Update the letsCode alias so you cd into the directory of your choice.'; cd ${LetsCodeDir}"
+# alias letsCode="echo -e '1. Type in editBash.\n2. Update the letsCode alias so you cd into the directory of your choice.'; cd ${LetsCodeDir}"
+alias letsCode="cd ${LetsCodeDir}"
 alias makeTempFileAndFolder='makeTempFileAndFolder'
 
 makeTempFileAndFolder() {
@@ -133,6 +134,7 @@ CTRL + B, :new -s SESSION_NAME<CR> - create a new session named ... within a ses
 CTRL + B, S - list all the sessions
 CTRL + B, ( or ) - switch session
 CTRL + B, D - detach session
+CTRL + B, $ - rename session
 
 Windows
 ------------
