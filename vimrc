@@ -242,13 +242,16 @@ set ttyfast
 
 " Enable mouse use in all modes
 if has('mouse')
-    set mouse=a
+  set mouse=a
 endif
 
 " Set this to the name of your terminal that supports mouse codes.
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
 if !has('nvim')
-  set ttymouse=xterm2
+  " TODO: Check that tmux still works
+  " xterm2 was working until early 2023, but now it seems like we need
+  " sgr which is not mentioned as an option here
+  set ttymouse=sgr
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
